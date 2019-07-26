@@ -1,28 +1,34 @@
 
 import * as regression from 'regression';
-import {SankeyScoreComponentsData} from "../../types/SankeyScoreComponentsData";
-import {BaseScoreComponent} from "../BaseScoreComponent";
-import {MergedScoreComponent} from "../MergeScoreModels";
+import { SankeyScoreComponentsData } from "../../types/SankeyScoreComponentsData";
+import { BaseScoreComponent } from "../BaseScoreComponent";
+import { MergedScoreComponent } from "../MergeScoreModels";
 
 function addNodesAndLinksRecursively(scoreComponent: BaseScoreComponent, sankeyData: SankeyScoreComponentsData) {
+
+    const minScore = scoreComponent.result;
+    if (scoreComponent instanceof MergedScoreComponent) {
+        Math.min((scoreComponent as MergedScoreComponent).second.result, (scoreComponent as MergedScoreComponent).first.result);
+    }
     sankeyData.nodes.push({
         name: scoreComponent.label,
         nodeId: scoreComponent.id,
         value: scoreComponent.result,
         originalValue: scoreComponent.result,
-        originalSecondaryValue: Math.min((scoreComponent as MergedScoreComponent).second.result, (scoreComponent as MergedScoreComponent).first.result),
+        originalSecondaryValue: minScore,
         scoreComponent: scoreComponent
     });
+
     scoreComponent.children.forEach(child => {
-        const mergedChild = child as MergedScoreComponent;
+        //const mergedChild = child as MergedScoreComponent;
         sankeyData.links.push({
-           source: scoreComponent.id,
-           target: child.id,
-           value: mergedChild.result,
-           secondaryValue: Math.min(mergedChild.first.result, mergedChild.second.result)
+            source: scoreComponent.id,
+            target: child.id,
+            value: child.result,
+            secondaryValue: child.result
         });
         addNodesAndLinksRecursively(child, sankeyData);
-   });
+    });
 }
 
 export default function transformForSankey(scoreComponent: BaseScoreComponent): SankeyScoreComponentsData {
@@ -64,7 +70,7 @@ export function exponentialRegression(): ExponentialRegressionResult {
         a: null,
         b: null,
         curvePoints: null,
-        inverseFn: function(y: number): number {
+        inverseFn: function (y: number): number {
             //return (1/a)*(Math.log(y/b));
             return Math.max(Math.log(Math.pow(y, 2)), 0.5);
         }

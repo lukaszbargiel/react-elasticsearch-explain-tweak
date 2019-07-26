@@ -1,5 +1,5 @@
 
-import {BaseScoreComponent} from "./BaseScoreComponent";
+import { BaseScoreComponent } from "./BaseScoreComponent";
 
 export enum ChildrenCalculation {
     Product = "product",
@@ -20,6 +20,7 @@ export enum ScoreComponentType {
     SumOf = "sum_of",
     FieldWeightSimilarity = "field_weight_similarity",
     Score = "score",
+    Other = "other" // for all others not implemented
 }
 
 export class ScoreComponent implements BaseScoreComponent {

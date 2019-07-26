@@ -1,7 +1,7 @@
 
-import {ScoreComponent, ScoreComponentType} from "./ScoreComponent";
-import {BaseScoreComponent} from "./BaseScoreComponent";
-import {merge} from "d3-array";
+import { ScoreComponent, ScoreComponentType } from "./ScoreComponent";
+import { BaseScoreComponent } from "./BaseScoreComponent";
+import { merge } from "d3-array";
 
 export class MergedScoreComponent implements BaseScoreComponent {
 
@@ -31,7 +31,7 @@ export class MergedScoreComponent implements BaseScoreComponent {
     }
 }
 
-export function mergeScoreComponents(components1: ScoreComponent[], components2: ScoreComponent[], mergingContext: MergingScoreComponentsContext = new MergingScoreComponentsContext()) : MergedScoreComponent[] {
+export function mergeScoreComponents(components1: ScoreComponent[], components2: ScoreComponent[], mergingContext: MergingScoreComponentsContext = new MergingScoreComponentsContext()): MergedScoreComponent[] {
     const merged: MergedScoreComponent[] = [];
     components1.forEach(c1 => {
         let mergeWith = components2.filter(c2 => c1.type == c2.type);

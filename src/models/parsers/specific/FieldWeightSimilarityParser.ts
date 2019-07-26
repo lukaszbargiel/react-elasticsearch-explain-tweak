@@ -1,7 +1,7 @@
 
-import {ExplainScoreComponent, Parser} from "../Parser";
-import {RegExpParser} from "../RegExpParser";
-import {ChildrenCalculation, ScoreComponent, ScoreComponentType} from "../../ScoreComponent";
+import { ExplainScoreComponent, Parser } from "../Parser";
+import { RegExpParser } from "../RegExpParser";
+import { ChildrenCalculation, ScoreComponent, ScoreComponentType } from "../../ScoreComponent";
 
 export class FieldWeightSimilarityComponent extends ScoreComponent {
 
@@ -22,9 +22,10 @@ export class FieldWeightSimilarityParser extends RegExpParser {
     }
 
     protected mapToScoreComponent = (explainScoreComponent: ExplainScoreComponent, matchedGroups: string[]): FieldWeightSimilarityComponent => {
+
         return new FieldWeightSimilarityComponent({
             modifiedResult: null,
-            label: matchedGroups[2],
+            label: matchedGroups[1] + ':' + matchedGroups[2],
             childrenCalculation: ChildrenCalculation.SumOf,
             children: [],
             type: ScoreComponentType.FieldWeightSimilarity,

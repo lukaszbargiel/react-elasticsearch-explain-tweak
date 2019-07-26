@@ -2,7 +2,7 @@
 import * as React from "react";
 import * as d3 from "d3";
 import * as d3Sankey from "d3-sankey";
-import {SankeyGraphLinkExtra, SankeyGraphNodeExtra, SankeyScoreComponentsData} from "../types/SankeyScoreComponentsData";
+import { SankeyGraphLinkExtra, SankeyGraphNodeExtra, SankeyScoreComponentsData } from "../types/SankeyScoreComponentsData";
 
 interface SankeyDiagramProps {
     graphData: SankeyScoreComponentsData
@@ -28,7 +28,7 @@ export class SankeyDiagram extends React.Component<SankeyDiagramProps, {}> {
     render() {
 
         if (this.graphDataCalculated) {
-            const {width, height} = d3.select(this.svgElement).node().getBoundingClientRect();
+            const { width, height } = d3.select(this.svgElement).node().getBoundingClientRect();
             const sankeyLayout = d3Sankey.sankey<SankeyGraphNodeExtra, SankeyGraphLinkExtra>()
                 .nodeId(node => node.nodeId)
                 .nodeAlign(d3Sankey.sankeyLeft)
@@ -42,10 +42,10 @@ export class SankeyDiagram extends React.Component<SankeyDiagramProps, {}> {
 
 
         return <div>
-            <svg ref={this.setSvgElement} width={800} height={800} textRendering="geometricPrecision" onClick={() => console.log(this.props.graphData)}>
+            <svg ref={this.setSvgElement} width={1200} height={1600} textRendering="geometricPrecision" onClick={() => console.log(this.props.graphData)}>
                 <defs>
                     <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%"   stopColor="#05a" stopOpacity="0.5" />
+                        <stop offset="0%" stopColor="#05a" stopOpacity="0.5" />
                         <stop offset="100%" stopColor="#0a5" stopOpacity="1.0" />
                     </linearGradient>
                 </defs>
@@ -77,7 +77,7 @@ export class SankeyDiagram extends React.Component<SankeyDiagramProps, {}> {
         this.props.graphData.links.forEach(l => {
             nodes.push(<path key={l.index} d={d3Sankey.sankeyLinkHorizontal()(l)} stroke="darkgreen" fill="none" strokeWidth={Math.max(0.1, l.width)} />);
             if (l.secondaryValue != null && l.secondaryValue < l.value) {
-                nodes.push(<path key={l.index + "_2"} d={d3Sankey.sankeyLinkHorizontal()(l)} stroke="lightgreen" fill="none" strokeWidth={Math.max(0.1,  l.width / l.value * l.secondaryValue)} />);
+                nodes.push(<path key={l.index + "_2"} d={d3Sankey.sankeyLinkHorizontal()(l)} stroke="lightgreen" fill="none" strokeWidth={Math.max(0.1, l.width / l.value * l.secondaryValue)} />);
             }
         });
         return nodes;
@@ -89,16 +89,16 @@ export class SankeyDiagram extends React.Component<SankeyDiagramProps, {}> {
             const width = 100;
             const mergedTarget = (l.target as any);
             return <svg key={l.index} x={(l.target as any).x0 - (width + 10)} y={l.y1 - 10} width={width} height={20}>
-                    <rect fill="black" fillOpacity={0.3} rx={5} ry={5} width="100%" height="100%" />
-                    <text x={width / 2} y={15} fill="white" fontWeight="bold" fontSize={12} offset={0} textAnchor="middle" fontFamily="Verdana">{mergedTarget.originalValue.toFixed(3)}, {mergedTarget.originalSecondaryValue.toFixed(3)}</text>
-                </svg>
+                <rect fill="black" fillOpacity={0.3} rx={5} ry={5} width="100%" height="100%" />
+                <text x={width / 2} y={15} fill="white" fontWeight="bold" fontSize={12} offset={0} textAnchor="middle" fontFamily="Verdana">{mergedTarget.originalValue.toFixed(3)}, {mergedTarget.originalSecondaryValue.toFixed(3)}</text>
+            </svg>
 
         })
     };
 
     getSankeyNodeLabels = () => {
         return this.props.graphData == null ? null : this.props.graphData.nodes.map(n => {
-            const labelWidth = 100;
+            const labelWidth = 150;
             const labelYOffset = 30;
             const nodeCenter = (n.x1 - n.x0) / 2;
             const labelCenter = labelWidth / 2;
@@ -106,7 +106,7 @@ export class SankeyDiagram extends React.Component<SankeyDiagramProps, {}> {
             const labelX = n.x0 - labelXOffset;
 
             return <svg key={`${n.name}_${n.nodeId}_label`} x={labelX} y={n.y0 - labelYOffset} width={labelWidth} height={20}>
-                <rect fill="black" rx={5} ry={5} width="100%" height="100%" />
+                <rect fill="black" fillOpacity={0.5} rx={5} ry={5} width="100%" height="100%" />
                 <text x={labelWidth / 2} y={15} fill="white" fontWeight="bold" fontSize={12} offset={0} textAnchor="middle" fontFamily="Verdana">{n.name}</text>
             </svg>
 
