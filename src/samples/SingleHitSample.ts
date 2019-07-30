@@ -1,55 +1,110 @@
 import { ExplainScoreComponent } from "../models/parsers/Parser";
 
 export default {
-    "value": 687.574646,
+    "value": 1248.75854,
     "description": "sum of:",
     "details": [
         {
-            "value": 687.574646,
+            "value": 1248.75854,
             "description": "filters explain",
             "details": [
                 {
-                    "value": 5.729789,
+                    "value": 10.4063215,
                     "description": "sum of:",
                     "details": [
                         {
-                            "value": 5.729789,
+                            "value": 10.4063215,
                             "description": "sum of:",
                             "details": [
                                 {
-                                    "value": 5.729789,
+                                    "value": 10.4063215,
                                     "description": "sum of:",
                                     "details": [
                                         {
-                                            "value": 2.92034984,
+                                            "value": 2.900422,
                                             "description": "max plus 0.1 times others of:",
                                             "details": [
                                                 {
-                                                    "value": 1.4032023,
-                                                    "description": "weight(itemname.text:men in 533) [PerFieldSimilarity], result of:",
+                                                    "value": 2.900422,
+                                                    "description": "weight(brand.text:columbia in 553) [PerFieldSimilarity], result of:",
                                                     "details": [
                                                         {
-                                                            "value": 1.4032023,
-                                                            "description": "score(doc=533,freq=1.0 = termFreq=1.0\n), product of:",
+                                                            "value": 2.900422,
+                                                            "description": "score(doc=553,freq=1.0 = termFreq=1.0\n), product of:",
                                                             "details": [
                                                                 {
-                                                                    "value": 2.11938214,
+                                                                    "value": 2.900422,
                                                                     "description": "idf, computed as log(1 + (docCount - docFreq + 0.5) / (docFreq + 0.5)) from:",
                                                                     "details": [
                                                                         {
-                                                                            "value": 113.0,
+                                                                            "value": 49.0,
                                                                             "description": "docFreq",
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 944.0,
+                                                                            "value": 899.0,
                                                                             "description": "docCount",
                                                                             "details": []
                                                                         }
                                                                     ]
                                                                 },
                                                                 {
-                                                                    "value": 0.6620808,
+                                                                    "value": 1.0,
+                                                                    "description": "tfNorm, computed as (freq * (k1 + 1)) / (freq + k1) from:",
+                                                                    "details": [
+                                                                        {
+                                                                            "value": 1.0,
+                                                                            "description": "termFreq=1.0",
+                                                                            "details": []
+                                                                        },
+                                                                        {
+                                                                            "value": 1.2,
+                                                                            "description": "parameter k1",
+                                                                            "details": []
+                                                                        },
+                                                                        {
+                                                                            "value": 0.0,
+                                                                            "description": "parameter b (norms omitted for field)",
+                                                                            "details": []
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "value": 3.0726862,
+                                            "description": "max plus 0.1 times others of:",
+                                            "details": [
+                                                {
+                                                    "value": 1.97302556,
+                                                    "description": "weight(itemname.text:men in 553) [PerFieldSimilarity], result of:",
+                                                    "details": [
+                                                        {
+                                                            "value": 1.97302556,
+                                                            "description": "score(doc=553,freq=1.0 = termFreq=1.0\n), product of:",
+                                                            "details": [
+                                                                {
+                                                                    "value": 2.25525117,
+                                                                    "description": "idf, computed as log(1 + (docCount - docFreq + 0.5) / (docFreq + 0.5)) from:",
+                                                                    "details": [
+                                                                        {
+                                                                            "value": 99.0,
+                                                                            "description": "docFreq",
+                                                                            "details": []
+                                                                        },
+                                                                        {
+                                                                            "value": 948.0,
+                                                                            "description": "docCount",
+                                                                            "details": []
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "value": 0.874858439,
                                                                     "description": "tfNorm, computed as (freq * (k1 + 1)) / (freq + k1 * (1 - b + b * fieldLength / avgFieldLength)) from:",
                                                                     "details": [
                                                                         {
@@ -68,12 +123,12 @@ export default {
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 3.559322,
+                                                                            "value": 3.70464134,
                                                                             "description": "avgFieldLength",
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 8.0,
+                                                                            "value": 5.0,
                                                                             "description": "fieldLength",
                                                                             "details": []
                                                                         }
@@ -84,31 +139,31 @@ export default {
                                                     ]
                                                 },
                                                 {
-                                                    "value": 2.78002954,
-                                                    "description": "weight(image:men in 533) [PerFieldSimilarity], result of:",
+                                                    "value": 2.87538362,
+                                                    "description": "weight(image:men in 553) [PerFieldSimilarity], result of:",
                                                     "details": [
                                                         {
-                                                            "value": 2.78002954,
-                                                            "description": "score(doc=533,freq=1.0 = termFreq=1.0\n), product of:",
+                                                            "value": 2.87538362,
+                                                            "description": "score(doc=553,freq=1.0 = termFreq=1.0\n), product of:",
                                                             "details": [
                                                                 {
-                                                                    "value": 3.50145388,
+                                                                    "value": 3.17371535,
                                                                     "description": "idf, computed as log(1 + (docCount - docFreq + 0.5) / (docFreq + 0.5)) from:",
                                                                     "details": [
                                                                         {
-                                                                            "value": 27.0,
+                                                                            "value": 38.0,
                                                                             "description": "docFreq",
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 911.0,
+                                                                            "value": 919.0,
                                                                             "description": "docCount",
                                                                             "details": []
                                                                         }
                                                                     ]
                                                                 },
                                                                 {
-                                                                    "value": 0.7939643,
+                                                                    "value": 0.905999243,
                                                                     "description": "tfNorm, computed as (freq * (k1 + 1)) / (freq + k1 * (1 - b + b * fieldLength / avgFieldLength)) from:",
                                                                     "details": [
                                                                         {
@@ -127,12 +182,12 @@ export default {
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 10.4017563,
+                                                                            "value": 10.3699675,
                                                                             "description": "avgFieldLength",
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 17.0,
+                                                                            "value": 13.0,
                                                                             "description": "fieldLength",
                                                                             "details": []
                                                                         }
@@ -145,40 +200,40 @@ export default {
                                             ]
                                         },
                                         {
-                                            "value": 2.809439,
+                                            "value": 4.433213,
                                             "description": "max plus 0.1 times others of:",
                                             "details": [
                                                 {
-                                                    "value": 2.809439,
-                                                    "description": "weight(image:jacket in 533) [PerFieldSimilarity], result of:",
+                                                    "value": 4.433213,
+                                                    "description": "weight(Synonym(itemname.text:coat itemname.text:jacket) in 553) [PerFieldSimilarity], result of:",
                                                     "details": [
                                                         {
-                                                            "value": 2.809439,
-                                                            "description": "score(doc=533,freq=1.0 = termFreq=1.0\n), product of:",
+                                                            "value": 4.433213,
+                                                            "description": "score(doc=553,freq=2.0 = termFreq=2.0\n), product of:",
                                                             "details": [
                                                                 {
-                                                                    "value": 3.5384953,
+                                                                    "value": 3.54122281,
                                                                     "description": "idf, computed as log(1 + (docCount - docFreq + 0.5) / (docFreq + 0.5)) from:",
                                                                     "details": [
                                                                         {
-                                                                            "value": 26.0,
+                                                                            "value": 27.0,
                                                                             "description": "docFreq",
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 911.0,
+                                                                            "value": 948.0,
                                                                             "description": "docCount",
                                                                             "details": []
                                                                         }
                                                                     ]
                                                                 },
                                                                 {
-                                                                    "value": 0.7939643,
+                                                                    "value": 1.25188768,
                                                                     "description": "tfNorm, computed as (freq * (k1 + 1)) / (freq + k1 * (1 - b + b * fieldLength / avgFieldLength)) from:",
                                                                     "details": [
                                                                         {
-                                                                            "value": 1.0,
-                                                                            "description": "termFreq=1.0",
+                                                                            "value": 2.0,
+                                                                            "description": "termFreq=2.0",
                                                                             "details": []
                                                                         },
                                                                         {
@@ -192,12 +247,12 @@ export default {
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 10.4017563,
+                                                                            "value": 3.70464134,
                                                                             "description": "avgFieldLength",
                                                                             "details": []
                                                                         },
                                                                         {
-                                                                            "value": 17.0,
+                                                                            "value": 5.0,
                                                                             "description": "fieldLength",
                                                                             "details": []
                                                                         }
@@ -229,7 +284,7 @@ export default {
                                     "details": []
                                 },
                                 {
-                                    "value": 5.729789,
+                                    "value": 10.4063215,
                                     "description": "CONST BOOST: 71.0",
                                     "details": []
                                 }
@@ -245,7 +300,7 @@ export default {
                                     "details": []
                                 },
                                 {
-                                    "value": 5.729789,
+                                    "value": 10.4063215,
                                     "description": "CONST BOOST: 49.0",
                                     "details": []
                                 }

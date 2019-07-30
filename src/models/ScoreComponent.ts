@@ -47,7 +47,25 @@ export class ScoreComponent implements BaseScoreComponent {
             return child;
         }
     }
+
+    getAllChildrenByType = (type: ScoreComponentType): ScoreComponent[] => {
+        let filteredByType: ScoreComponent[] = [];
+
+        if (this.children.length > 0) {
+            this.children.forEach(childComponent => {
+                const filteredChildren: ScoreComponent[] = childComponent.getAllChildrenByType(type);
+                filteredByType = filteredByType.concat(filteredChildren);
+            });
+        }
+
+        if (this.type === type) {
+            filteredByType.push(this);
+        }
+
+        return filteredByType;
+    }
 }
+
 
 export class FormulaScoreComponent extends ScoreComponent {
 
