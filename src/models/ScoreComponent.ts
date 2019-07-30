@@ -20,6 +20,8 @@ export enum ScoreComponentType {
     SumOf = "sum_of",
     FieldWeightSimilarity = "field_weight_similarity",
     Score = "score",
+    TermFrequency = "term_freq",
+    PhraseFrequency = "phrase_freq",
     Other = "other" // for all others not implemented
 }
 

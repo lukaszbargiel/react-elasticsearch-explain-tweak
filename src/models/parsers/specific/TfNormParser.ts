@@ -4,6 +4,24 @@ import {ChildrenCalculation, FormulaScoreComponent, ScoreComponent, ScoreCompone
 import {RegExpParser} from "../RegExpParser";
 import {SimpleRegExpParser} from "../SimpleRegExpParser";
 
+
+export class TermFreqParser extends RegExpParser {
+
+    constructor() {
+        super(/(termFreq)=.*/, 1);
+    }
+
+    mapToScoreComponent = (explainScoreComponent: ExplainScoreComponent): ScoreComponent => new ScoreComponent({
+        label: "Term Frequency",
+        childrenCalculation: ChildrenCalculation.None,
+        children: [],
+        modifiedResult: null,
+        type: ScoreComponentType.TermFrequency,
+        result: explainScoreComponent.value,
+    });
+
+}
+
 export class TfNormParser extends RegExpParser {
 
     constructor() {
@@ -12,6 +30,7 @@ export class TfNormParser extends RegExpParser {
     }
 
     protected mapToScoreComponent = (explainScoreComponent: ExplainScoreComponent, matchedGroups: string[]): FormulaScoreComponent => {
+        
         return new FormulaScoreComponent({
             type: ScoreComponentType.TfNorm,
             formula: matchedGroups[1],
@@ -23,7 +42,7 @@ export class TfNormParser extends RegExpParser {
     };
 
     getChildrenParsers = (): Parser[] => [
-        new SimpleRegExpParser(/(termFreq)=.*/, 1, 1),
+        new TermFreqParser(),
         new SimpleRegExpParser(/(phraseFreq)=.*/, 1, 1),
         new SimpleRegExpParser(/parameter\s(.*)/, 1, 1),
         new SimpleRegExpParser(/avgFieldLength/, 0),

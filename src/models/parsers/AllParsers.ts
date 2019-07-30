@@ -7,11 +7,13 @@ import { SumOfParser } from "./specific/SumOfParser";
 import { TfNormParser } from "./specific/TfNormParser";
 import { ScoreParser } from "./specific/ScoreParser";
 import { OtherFilterParser } from "./specific/OtherFilterParser";
+import { SynonymWeightSimilarityParser } from "./specific/SynonymWeightSimilarityParser";
 
 
 const allParsers = [
     new BoostParser(),
     new FieldWeightSimilarityParser(),
+    new SynonymWeightSimilarityParser(),
     new IdfParser(),
     new TfNormParser(),
     new ScoreParser(),

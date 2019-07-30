@@ -1,5 +1,5 @@
 import { ExplainScoreComponent } from "../models/parsers/Parser";
-
+// http://lucene.apache.org/core/4_6_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html
 export default {
     "value": 1248.75854,
     "description": "sum of:",

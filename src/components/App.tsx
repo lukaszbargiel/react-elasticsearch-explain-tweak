@@ -34,7 +34,6 @@ export class App extends React.Component<{}, {}> {
         interpolate(mergedSankeyGraphData, regressionResult.inverseFn);
 
         const weights: FieldWeightSimilarityComponent[] = parsedComponent.getAllChildrenByType(ScoreComponentType.FieldWeightSimilarity) as FieldWeightSimilarityComponent[];
-        debugger;
         return (
             <div>
                 Whats going on here
@@ -42,8 +41,12 @@ export class App extends React.Component<{}, {}> {
                     weights.map((field, index) => {
                         const fieldScore: ScoreComponent = field.getChildByType(ScoreComponentType.Score);
                         const idfScore: FormulaScoreComponent = fieldScore.getChildByType(ScoreComponentType.Idf) as FormulaScoreComponent;
+                        const tfNormScore: ScoreComponent = fieldScore.getChildByType(ScoreComponentType.TfNorm) as FormulaScoreComponent
                         const documentCount: ScoreComponent = idfScore.getChildByType(ScoreComponentType.DocumentCount)
                         const documentFrequency: ScoreComponent = idfScore.getChildByType(ScoreComponentType.DocumentFrequency)
+                        const termFreqency: ScoreComponent = tfNormScore.getChildByType(ScoreComponentType.TermFrequency);
+
+                        
                         return (
                             <div className="container">
                                 <div className="row">
@@ -59,15 +62,28 @@ export class App extends React.Component<{}, {}> {
                                 </div>
                                 <div className="row">
                                     <div className="col-sm-4">
-                                        <b>Field Weight:</b> {idfScore.result}
+                                    {/* IDF -> Result */}
+                                        <b>Field Weight:</b> {idfScore.result} 
                                     </div>
                                     <div className="col-sm-4">
-                                        <b>Term Frequency:</b>{field.fieldName}
+                                        <b>Term Frequency:</b>{termFreqency.result}
                                     </div>
                                     <div className="col-sm-4">
                                         <b>Doc Frequency:</b>{documentFrequency.result}
                                     </div><br />
                                 </div>
+                                <div className="row">
+                                    <div className="col-sm-4">
+                                        <b>Query Weight:</b> {idfScore.result}
+                                    </div>
+                                    <div className="col-sm-4">
+                                        <b>Query Norm:</b>{tfNormScore.result}
+                                    </div>
+                                    <div className="col-sm-4">
+                                        <b>Field Norm:</b>{tfNormScore.result}
+                                    </div><br />
+                                </div>
+                                =======================================================
                             </div>)
                     })
                 }
